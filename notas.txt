@@ -1,0 +1,41 @@
+
+
+
+cd usuario-service
+mvn clean package
+cd..
+cd moto-service
+mvn clean package
+cd..
+cd carro-service
+mvn clean package
+cd..
+
+
+Post 
+http://localhost:8001/usuario/
+{
+    "nombre" : "Sergio",
+    "email" : "ser@gmail.com"
+}
+
+@RestTemplate
+//Guardar carros
+Post
+http://localhost:8002/carro
+{
+    "marca" : "Audi",
+    "modelo" : "A4",
+    "usuarioId" : 1
+}
+
+//Obtener carros
+Get
+http://localhost:8002/carro
+
+
+//Obtener carros por usuario
+Get
+http://localhost:8001/usuario/carros/1
+
+1:46:27
